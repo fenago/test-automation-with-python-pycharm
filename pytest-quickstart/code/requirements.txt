@@ -1,0 +1,6 @@
+attrs
+black
+pre-commit
+pytest==3.6.4
+numpy
+## pip install unittest2pytest pytest-mock pytest-timeout pytest-instafail pytest-xdist pytest-repeat pytest-cov==2.5.1 cookiecutter  virtualenv tox pymongo
