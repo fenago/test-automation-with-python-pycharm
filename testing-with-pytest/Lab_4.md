@@ -18,7 +18,7 @@ take a look at several of the most often used builtin fixtures one by one.
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 ### Using tmpdir and tmpdir_factory
@@ -101,7 +101,7 @@ so you can see where the directory is on your system. Let’s see where it is:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4
 
 ##### $ pytest -q -s test_tmpdir.py::test_tmpdir_factory
 
@@ -221,7 +221,7 @@ help string was modified, as shown here:
 ##### Step 2
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/pytestconfig
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/pytestconfig
 
 ##### $ pytest --help
 
@@ -393,7 +393,7 @@ the stack trace:
 ##### Step 5
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/cache
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/cache
 
 ##### $ pytest --verbose --tb=no test_pass_fail.py
 
@@ -484,7 +484,7 @@ And the output:
 ##### Step 8
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/cache
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/cache
 
 ##### $ pytest -q test_few_failures.py
 
@@ -663,7 +663,7 @@ of times:
 ##### Step 13
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/cache
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/cache
 
 ##### $ pytest -q --tb=linetest_slower.py
 
@@ -891,7 +891,7 @@ Now, 'always print this' will always be output:
 ##### Step  17
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/cap
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/cap
 
 ##### $ pytest -q test_capsys.py::test_capsys_disabled
 
@@ -1130,7 +1130,7 @@ convention.
 ##### Step 18
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/dt/1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/dt/1
 
 ##### $ pytest -v --doctest-modules--tb=shortunnecessary_math.py
 
@@ -1156,7 +1156,7 @@ File"<doctestunnecessary_math.divide[0]>", line1, in <module>
 
 NameError:name'um'is not defined
 
-/home/jovyan/work/testing-with-pytest/code/ch4/dt/1/unnecessary_math.py:37:UnexpectedException
+/pytest-labs/testing-with-pytest/code/ch4/dt/1/unnecessary_math.py:37:UnexpectedException
 
 ___________[doctest]unnecessary_math.multiply___________
 022
@@ -1171,7 +1171,7 @@ File"<doctestunnecessary_math.multiply[0]>",line1, in <module>
 
 NameError:name'um'is not defined
 
-/home/jovyan/work/testing-with-pytest/code/ch4/dt/1/unnecessary_math.py:25:UnexpectedException
+/pytest-labs/testing-with-pytest/code/ch4/dt/1/unnecessary_math.py:25:UnexpectedException
 
 =========== 2 failed, 1 passed in 0.12 seconds ============
 ```
@@ -1212,7 +1212,7 @@ This definitely fixes the problem:
 ##### Step 19
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch4/dt/2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch4/dt/2
 
 ##### $ pytest -v --doctest-modules--tb=shortunnecessary_math.py
 

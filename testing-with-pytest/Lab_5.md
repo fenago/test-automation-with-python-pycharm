@@ -37,7 +37,7 @@ with the least amount of work.
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 ### Finding Plugins
@@ -239,7 +239,7 @@ Let’s run them to see if they pass:
 ##### Step  9
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/a/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/a/tasks_proj
 
 ##### $ pytest
 
@@ -279,7 +279,7 @@ there aren’t any other tests with names that contain “TestAdd.”
 ##### Step 10
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/a/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/a/tasks_proj/tests/func
 
 ##### $ pytest -v --tb=no test_api_exceptions.py -k TestAdd
 
@@ -328,7 +328,7 @@ And now we have just the output we were looking for. A test session with no
 ##### Step 11
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/b/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/b/tasks_proj/tests/func
 
 ##### $ pytest --tb=no test_api_exceptions.py -k TestAdd
 
@@ -404,7 +404,7 @@ First, with no --nice option, to make sure just the username shows up:
 
 ##### Step 13
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/c/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/c/tasks_proj/tests/func
 
 ##### $ pytest --tb=no test_api_exceptions.py -k TestAdd
 
@@ -789,12 +789,12 @@ rent directory in editable mode:
 ##### Step 18
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/pytest -nice/
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/pytest -nice/
 
 ##### $ pip install .
 
 ```
-Processing/home/jovyan/work/testing-with-pytest/code/ch5/pytest -nice
+Processing /pytest-labs/testing-with-pytest/code/ch5/pytest -nice
 ...
 
 Runningsetup.pybdist_wheelfor pytest-nice... done
@@ -856,7 +856,7 @@ line, we can use this setup.py file to create a distribution:
 ##### Step 21
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch5/pytest -nice
+##### $ cd /pytest-labs/testing-with-pytest/code/ch5/pytest -nice
 
 ##### $ pythonsetup.pysdist
 

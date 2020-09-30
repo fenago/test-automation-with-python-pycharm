@@ -28,7 +28,7 @@ the following topics:
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/pytest-quickstart/code` folder.
+All exercises are present in `/pytest-labs/pytest-quickstart/code` folder.
 
 
 Overview of what we have learned 

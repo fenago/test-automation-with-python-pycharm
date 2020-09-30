@@ -16,7 +16,7 @@ files of the Tasks project.
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 
@@ -159,7 +159,7 @@ with their descriptions:
 ##### Step 2
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch6/b/tasks_proj/tests
+##### $ cd /pytest-labs/testing-with-pytest/code/ch6/b/tasks_proj/tests
 
 ##### $ pytest --markers
 
@@ -185,7 +185,7 @@ in ch6/a. Let’s try running the tests without registering any markers:
 
 ##### Step 3
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch6/a/tasks_proj/tests
+##### $ cd /pytest-labs/testing-with-pytest/code/ch6/a/tasks_proj/tests
 
 ##### $ pytest --strict --tb=line
 
@@ -235,7 +235,7 @@ This should allow us to run tests, including the smoke tests:
 
 ##### Step 4
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch6/b/tasks_proj/tests
+##### $ cd /pytest-labs/testing-with-pytest/code/ch6/b/tasks_proj/tests
 
 ##### $ pytest --strict -m smoke
 
@@ -434,7 +434,7 @@ won’t work:
 
 ##### Step 5
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch6/dups
+##### $ cd /pytest-labs/testing-with-pytest/code/ch6/dups
 
 ##### $ pytest a
 
@@ -480,9 +480,9 @@ importedmodule'test_foo'has this__file__attribute:
 ```
 
 ```
-/home/jovyan/work/testing-with-pytest/code/ch6/dups/a/test_foo.py
+/pytest-labs/testing-with-pytest/code/ch6/dups/a/test_foo.py
 whichis not the sameas the testfilewe wantto collect:
-/home/jovyan/work/testing-with-pytest/code/ch6/dups/b/test_foo.py
+/pytest-labs/testing-with-pytest/code/ch6/dups/b/test_foo.py
 HINT:remove__pycache__/ .pycfiles
 and/oruse a uniquebasename for yourtestfilemodules
 !!!!!!!!!Interrupted:1 errorsduringcollection!!!!!!!!!
@@ -511,7 +511,7 @@ Now, let’s try this again from the top level in dups_fixed:
 
 ##### Step 8
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch6/dups_fixed
+##### $ cd /pytest-labs/testing-with-pytest/code/ch6/dups_fixed
 
 ##### $ pytest
 

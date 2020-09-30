@@ -24,20 +24,15 @@
 
 Labs for this course are available at path shared below. Elev8ed Notecourses (powered by Jupyter) will be accessible at the port given to you by your instructor.
 
+Labs for this course are available at: `/pytest-labs/pytest-quickstart`
+
 1. ##### Introducing pytest
-		* <host-ip>:<port>/lab/workspaces/lab1_Introduction
 2. ##### Writing and Running Tests
-		* <host-ip>:<port>/lab/workspaces/lab2_Tests
 3. ##### Markers and Parametrization
-		* <host-ip>:<port>/lab/workspaces/lab3_Markers_Parametrization
 4. ##### Fixtures
-		* <host-ip>:<port>/lab/workspaces/lab4_Fixtures
 5. ##### Plugins
-		* <host-ip>:<port>/lab/workspaces/lab5_Plugins
 6. ##### Converting unittest suites to pytest
-		* <host-ip>:<port>/lab/workspaces/lab6_unittest
 7. ##### Wrapping Up
-		* <host-ip>:<port>/lab/workspaces/lab7_Wrapping
 
 
 ### About

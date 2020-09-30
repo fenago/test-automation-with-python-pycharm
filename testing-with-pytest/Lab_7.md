@@ -15,7 +15,7 @@ power of mixing pytest with other tools.
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 
@@ -32,7 +32,7 @@ failures:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/c/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/c/tasks_proj
 
 ##### $ pytest --tb=no -q
 
@@ -167,7 +167,7 @@ E + where False = isinstance(ObjectId('5b8c1316cb02981dc91fccd1'), int)
 tests/func/test_add.py:16: AssertionError
 
 >>>>>>>>>>>>>>>>>>>>>> entering PDB >>>>>>>>>>>>>>>>>>>>>>>
-> /home/jovyan/work/testing-with-pytest/code/ch3/c/tasks_proj/tests/func/test_add.py(16)
+> /pytest-labs/testing-with-pytest/code/ch3/c/tasks_proj/tests/func/test_add.py(16)
 > test_add_returns_valid_id()
 -> assert isinstance(task_id, int)
 (Pdb)
@@ -278,12 +278,12 @@ Successfully uninstalled tasks-0.1.0
 ##### Step 6
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 
 ##### $ pip install -e .
 
 ```
-Obtaining file:///home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+Obtaining file:///pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 ...
 Installing collected packages: tasks
 Running setup.py develop for tasks
@@ -298,7 +298,7 @@ Successfully installed tasks
 
 ```
 ...
-tasks 0.1.1 /home/jovyan/work/testing-with-pytest/code/tasks_proj_v2/src
+tasks 0.1.1 /pytest-labs/testing-with-pytest/code/tasks_proj_v2/src
 ...
 
 ```
@@ -310,7 +310,7 @@ erage report:
 ##### Step  8
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 
 ##### $ pytest --cov=src
 
@@ -448,7 +448,7 @@ Let’s pause and install version 2 of Tasks:
 ##### Step 10
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/
+##### $ cd /pytest-labs/testing-with-pytest/code/
 
 ##### $ pip install -e ch7/tasks_proj_v2
 
@@ -737,7 +737,7 @@ Let’s make sure they all work:
 ##### Step 15
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 
 ##### $ pytest -v tests/unit/test_cli.py
 
@@ -863,13 +863,13 @@ Then to run tox, just run, well, tox:
 ##### Step 17
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 
 ##### $ tox
 
 ```
-GLOBsdist-make:/home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2/setup.py
-py27inst-nodeps:/home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2/.tox/dist/tasks-0.1.1.zip
+GLOBsdist-make:/pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2/setup.py
+py27inst-nodeps:/pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2/.tox/dist/tasks-0.1.1.zip
 py27installed:atomicwrites==1.2.1,attrs==18.2.0,Click==7.0,funcsigs==1.0.2,
 mock==2.0.0,more-itertools==4.3.0,pathlib2==2.3.2,pbr==5.0.0,pluggy==0.8.0,
 py==1.7.0,pytest==3.9.1,pytest-mock==1.10.0,scandir==1.9.0,six==1.11.0,
@@ -892,7 +892,7 @@ tests/unit/test_task.py.... [100%]
 
 ===================== 62 passed in 0.51 seconds =====================
 
-py37inst-nodeps:/home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2/.tox/dist/tasks-0.1.1.zip
+py37inst-nodeps:/pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2/.tox/dist/tasks-0.1.1.zip
 py37installed:atomicwrites==1.2.1,attrs==18.2.0,Click==7.0,
 more-itertools==4.3.0,pluggy==0.8.0,py==1.7.0,pytest==3.9.1,
 pytest-mock==1.10.0,six==1.11.0,tasks==0.1.1,tinydb==3.11.1
@@ -998,7 +998,7 @@ is there for setup and teardown. This test runs fine in unittest:
 ##### Step 18
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/unittest
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/unittest
 
 ##### $ python -m unittest -v test_delete_unittest.py
 

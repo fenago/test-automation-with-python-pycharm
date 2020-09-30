@@ -30,7 +30,7 @@ _proj_v2:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch7/tasks_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/ch7/tasks_proj_v2
 
 ##### $ pip install .
 
@@ -124,7 +124,7 @@ Notice that it takes over ten seconds to run normally:
 
 ##### $ pip install pytest-xdist
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/xdist
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/xdist
 
 ##### $ pytest test_parallel.py
 
@@ -187,7 +187,7 @@ a half-second timeout:
 ##### Step 5
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/xdist
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/xdist
 
 ##### $ pip install pytest-timeout
 
@@ -240,7 +240,7 @@ Here’s a test with normal failures at the end:
 ##### Step 6
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/xdist
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/xdist
 
 ##### $ pytest --timeout=0.5 --tb=line --maxfail=2 test_parallel.py
 
@@ -253,8 +253,8 @@ timeout func_only: False
 collected 10 items
 test_parallel.py FF
 ======================== FAILURES =========================
-/home/jovyan/work/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
-/home/jovyan/work/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
+/pytest-labs/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
+/pytest-labs/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
 ================ 2 failed in 1.09 seconds =================
 ```
 
@@ -276,9 +276,9 @@ timeout method: signal
 timeout func_only: False
 collected 10 items
 test_parallel.py F
-/home/jovyan/work/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
+/pytest-labs/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
 test_parallel.py F
-/home/jovyan/work/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
+/pytest-labs/testing-with-pytest/code/appendices/xdist/test_parallel.py:7: Failed: Timeout >0.5s
 ================ 2 failed in 1.10 seconds =================
 ```
 
@@ -356,7 +356,7 @@ The pytest-html plugin is really easy to start. Just add --html=report_name.html
 ##### Step 8
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/outcomes
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/outcomes
 
 ##### $ pytest --html=report.html
 
@@ -366,7 +366,7 @@ The pytest-html plugin is really easy to start. Just add --html=report_name.html
 metadata: ...
 collected 6 items
 test_outcomes.py .FxXsE
-generated html file: /home/jovyan/work/testing-with-pytest/code/appendices/outcomes/report.html
+generated html file: /pytest-labs/testing-with-pytest/code/appendices/outcomes/report.html
 ============================ ERRORS =============================
 _________________ ERROR at setup of test_error __________________
 @pytest.fixture()

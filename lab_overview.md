@@ -21,24 +21,17 @@ use the same version of pytest on multiple versions of Python.
 
 ### Labs
 
-Labs for this course are available at path shared below. Elev8ed Notecourses (powered by Jupyter) will be accessible at the port given to you by your instructor.
+Labs for this course are available at: `/pytest-labs/testing-with-pytest`
 
 1. ##### Getting Started with pytest
-		* <host-ip>:<port>/lab/workspaces/lab1_pytest
 2. ##### Writing Test Functions
-		* <host-ip>:<port>/lab/workspaces/lab2_Test_Functions
 3. ##### pytest Fixtures 
-		* <host-ip>:<port>/lab/workspaces/lab3_pytest_Fixtures
 4. ##### Builtin Fixtures
-		* <host-ip>:<port>/lab/workspaces/lab4_Builtin
 5. ##### Plugins
-		* <host-ip>:<port>/lab/workspaces/lab5_pytest_Plugins
 6. ##### Configuration
-		* <host-ip>:<port>/lab/workspaces/lab6_Configuration
 7. ##### Using pytest with Other Tools
-		* <host-ip>:<port>/lab/workspaces/lab7_Tools
 8. ##### Appendix
-		* <host-ip>:<port>/lab/workspaces/lab8_Appendix
+
 
 ### About
 

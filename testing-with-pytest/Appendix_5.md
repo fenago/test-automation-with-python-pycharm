@@ -98,7 +98,7 @@ Here’s the test session to help visualize the control flow:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/xunit
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/xunit
 
 ##### $ pytest -s test_xUnit_fixtures.py
 
@@ -177,7 +177,7 @@ You _can_ do it. But please don’t. It gets confusing. Take a look at this:
 ##### Step 2
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/xunit
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/xunit
 
 ##### $ pytest -s test_mixed_fixtures.py
 

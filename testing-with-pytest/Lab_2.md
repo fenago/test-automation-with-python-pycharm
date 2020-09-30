@@ -20,7 +20,7 @@ package, most of this lab still applies.
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 ### Testing a Package
@@ -136,7 +136,7 @@ Install tasks either by running `pip install .` or `pip install -e .` from the t
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code
+##### $ cd /pytest-labs/testing-with-pytest/code
 
 
 ##### $ pip install ./tasks_proj/
@@ -192,7 +192,7 @@ Now let’s try running tests:
 
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/unit
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/unit
 
 
 ##### $ pytest test_task.py
@@ -263,7 +263,7 @@ All of these tests fail, but what’s interesting is the traceback information:
 ##### Step 5
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/unit
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/unit
 
 ##### $ pytest test_task_fail.py
 
@@ -444,7 +444,7 @@ Now, let’s run just those tests that are marked with -m marker_name:
 ##### Step 7 
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 
 ##### $ pytest -v -m smoketest_api_exceptions.py
@@ -585,7 +585,7 @@ run our smoke test suite:
 ##### Step 10
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 
 ##### $ pytest -v -m smoke
@@ -634,7 +634,7 @@ Then give it a run:
 ##### Step 11
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest test_unique_id_1.py
 
@@ -849,7 +849,7 @@ Running this shows:
 ##### Step 17
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest test_unique_id_4.py
 
@@ -906,7 +906,7 @@ pytest:
 ##### Step 19 
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest tests/func--tb=no 
 
@@ -973,7 +973,7 @@ pytest:
 ##### Step 21
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest tests/func/test_add.py
 
@@ -996,7 +996,7 @@ To run a single test function, add :: and the test function name:
 ##### Step 22 
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest -v tests/func/test_add.py::test_add_returns_valid_id
 
@@ -1042,7 +1042,7 @@ functions and add ::, then the class name to the file parameter:
 ##### Step 23
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest -v tests/func/test_api_exceptions.py::TestUpdate
 
@@ -1065,7 +1065,7 @@ another :: and the method name:
 ##### Step 24
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest -v tests/func/test_api_exceptions.py::TestUpdate::test_bad_id
 
@@ -1096,7 +1096,7 @@ For example, we can run all of the functions that have _raises in their name:
 ##### Step 25 
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj
 
 ##### $ pytest -v -k _raises
 
@@ -1187,7 +1187,7 @@ passes:
 ##### Step 27
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_1
 
@@ -1229,7 +1229,7 @@ and report each as a separate test:
 ##### Step  28
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_2
 
@@ -1273,7 +1273,7 @@ identifier uses the parameter values in the report to make it readable:
 ##### Step 29
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_3
 
@@ -1296,7 +1296,7 @@ re-run the test if you want:
 ##### Step  30
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_3[sleep-None-False]
 
@@ -1315,7 +1315,7 @@ Be sure to use quotes if there are spaces in the identifier:
 ##### Step 31
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v "test_add_variety.py::test_add_3[eateggs-BrIaN-False]"
 
@@ -1354,7 +1354,7 @@ hard to interpret:
 ##### Step  32
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_4
 
@@ -1403,7 +1403,7 @@ Let’s run that and see how it looks:
 ##### Step 33
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_5
 
@@ -1428,7 +1428,7 @@ index to each, 0 and 1. The custom test identifiers can be used to run tests:
 ##### Step 34
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v "test_add_variety.py::test_add_5[Task(exercise,BrIaN,False)]"
 
@@ -1472,7 +1472,7 @@ Here it is in action:
 ##### Step  35
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::TestAdd
 
@@ -1518,7 +1518,7 @@ In action:
 ##### Step 36
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch2/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch2/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety.py::test_add_6
 

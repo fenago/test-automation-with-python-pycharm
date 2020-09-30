@@ -36,7 +36,7 @@ def test_some_data(some_data):
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 
@@ -137,11 +137,11 @@ are run:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/
+##### $ cd /pytest-labs/testing-with-pytest/code/
 
 ##### $ pip install ./tasks_proj/ # if not installed yet
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/a/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/a/tasks_proj/tests/func
 
 ##### $ pytest -v test_add.py -k valid_id
 
@@ -215,7 +215,7 @@ with a fixture fails:
 ##### Step 3
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3
 
 ##### $ pytest test_fixtures.py::test_a_tuple
 
@@ -375,7 +375,7 @@ Let’s trace it and see all the fixtures run:
 ##### Step 5
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/a/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/a/tasks_proj/tests/func
 
 ##### $ pytest --setup-show test_add.py::test_add_increases_count
 
@@ -499,7 +499,7 @@ and when the setup and teardown are run depend on the scope:
 ##### Step 6
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3
 
 ##### $ pytest --setup-show test_scope.py
 
@@ -628,7 +628,7 @@ Now, let’s see if all of these changes work with our tests:
 ##### Step 7
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/b/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/b/tasks_proj
 
 ##### $ pytest
 
@@ -774,7 +774,7 @@ the end of the session. Here’s what these look like:
 ##### Step 9
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3
 
 ##### $ pytest -v -s test_autouse.py
 
@@ -881,7 +881,7 @@ to look up the definition of lue. Let’s use that in the Tasks project:
 ##### Step 12
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/b/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/b/tasks_proj
 
 ##### $ pytest --fixturestests/func/test_add.py
 
@@ -980,7 +980,7 @@ four times, and then the test will get called four times:
 ##### Step 13
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/b/tasks_proj/tests/func
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/b/tasks_proj/tests/func
 
 ##### $ pytest -v test_add_variety2.py::test_add_a
 
@@ -1201,7 +1201,7 @@ Here’s what we have so far:
 ##### Step 16
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch3/c/tasks_proj
+##### $ cd /pytest-labs/testing-with-pytest/code/ch3/c/tasks_proj
 
 ##### $ pip install pymongo
 

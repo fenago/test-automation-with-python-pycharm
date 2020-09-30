@@ -59,7 +59,7 @@ lable via pip:
 ##### Step 1
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/packaging
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/packaging
 
 ##### $ pip install ./some_module_proj
 
@@ -167,7 +167,7 @@ This is now installable:
 ##### Step 4
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/packaging
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/packaging
 
 ##### $ pip install ./some_package_proj/
 
@@ -213,7 +213,7 @@ to create a source distribution and a wheel. Let’s try it:
 ##### Step 6
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/packaging/some_package_proj/
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/packaging/some_package_proj/
 
 ##### $ pip install wheel
 
@@ -341,7 +341,7 @@ Let’s see if this was enough to remove the warnings:
 ##### Step 8
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/packaging/some_package_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/packaging/some_package_proj_v2
 
 ##### $ python setup.py sdist bdist_wheel
 
@@ -379,7 +379,7 @@ install to our heart’s content:
 ##### Step 10
 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/appendices/packaging/some_package_proj_v2
+##### $ cd /pytest-labs/testing-with-pytest/code/appendices/packaging/some_package_proj_v2
 
 ##### $ mkdir ~/packages/
 

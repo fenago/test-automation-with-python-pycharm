@@ -9,7 +9,7 @@
 #### Lab Environment
 Al labs are ready to run. All packages have been installed. There is no requirement for any setup.
 
-All exercises are present in `~/work/testing-with-pytest/code` folder.
+All exercises are present in `/pytest-labs/testing-with-pytest/code` folder.
 
 
 
@@ -27,7 +27,7 @@ This is what it looks like when it’s run:
 
 ##### Step 1
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1 
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1 
 
 ##### $ pytest test_one.py
 
@@ -212,7 +212,7 @@ Run pytest
 
 ##### Step 5
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1 
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1 
 
 ##### $ pytest
 
@@ -295,14 +295,14 @@ run is called _test discovery_.
 
 ##### Step 9
    
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1/tasks
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1/tasks
 
 ##### $ pytest test_three.py
     
 ```
 ===================== test session starts ======================
 platform darwin -- Python 3.x.y, pytest-3.x.y, py-1.x.y, pluggy-0.x.y
-rootdir: /home/jovyan/work/testing-with-pytest/code/ch1, inifile:
+rootdir: /pytest-labs/testing-with-pytest/code/ch1, inifile:
 collected 2 items
 test_three.py .. [100%]
 =================== 2 passed in 0.01 seconds ===================
@@ -332,7 +332,7 @@ run just one. Specify the file directly, and add a ::test_name, like this:
 
 ##### Step 10
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest -v tasks/test_four.py::test_asdict
     
@@ -362,7 +362,7 @@ and configuration.
 
 ##### Step 12
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
     
 ##### $ pytest --collect-only
 
@@ -390,7 +390,7 @@ before running the tests. We’ll use it again with -k to show how that works.
 
 ##### Step 13 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
     
 ##### $ pytest -k "asdict or defaults" --collect-only
 
@@ -451,7 +451,7 @@ Do the same for test_replace().
 
 ##### Step 16 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1/tasks
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1/tasks
     
 ##### $ pytest -m run_these_please
 
@@ -469,7 +469,7 @@ Let’s try it on the six tests we have so far:
 
 ##### Step 17
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
     
 ##### $ pytest -x
 
@@ -498,7 +498,7 @@ and in the bottom line you see that one test failed and one passed.
 
 ##### Step 18
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
     
 ##### $ pytest --tb=no 
 
@@ -523,7 +523,7 @@ The -x option stops after one test failure.
 
 ##### Step 19 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
     
 ##### $ pytest --maxfail=2 --tb=no
 
@@ -556,7 +556,7 @@ be printed to stdout—to actually be printed to stdout while the tests are runn
 
 ##### Step 21
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest --lf
 
@@ -582,7 +582,7 @@ The --ff/--failed-first option will do the same as --last-failed
     
 ##### Step 22 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest --ff --tb=no 
     
@@ -597,7 +597,7 @@ test_two.py F [ 16%]
 
 ##### Step 23
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest --ff --tb=no 
 
@@ -616,7 +616,7 @@ The -v/--verbose option reports more information than without it.
     
 ##### Step 24 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest -v --ff --tb=no 
 
@@ -639,7 +639,7 @@ The -q/--quiet option is the opposite of -v/--verbose
 
 ##### Step 25 
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest -q
 
@@ -674,7 +674,7 @@ t_expected= Task( 'finishbook' , 'brian' , True,11)
 
 ##### Step 26
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest -l tasks
 
@@ -714,7 +714,7 @@ The --tb=style option modifies the way tracebacks for failures are output.
 
 ##### Step 27
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest --tb=no tasks
 
@@ -742,7 +742,7 @@ tasks/test_four.py.F [ 50%]
 tasks/test_three.py.. [100%]
 
 ========================FAILURES=========================
-/home/jovyan/work/testing-with-pytest/code/ch1/tasks/test_four.py:24:
+/pytest-labs/testing-with-pytest/code/ch1/tasks/test_four.py:24:
 AssertionError:assertTask(summary=...e=True, id=10)==
 Task(summary='...e=True,id=11)
 =========== 1 failed, 3 passed in 0.07 seconds ============
@@ -774,7 +774,7 @@ E       Use -v to get the fulldiff
 
 ##### Step 30
 
-##### $ cd /home/jovyan/work/testing-with-pytest/code/ch1
+##### $ cd /pytest-labs/testing-with-pytest/code/ch1
 
 ##### $ pytest --durations=3 tasks
 
