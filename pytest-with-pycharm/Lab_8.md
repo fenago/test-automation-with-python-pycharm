@@ -1,12 +1,14 @@
 <img align="right" src="../logo.png">
 
+https://www.youtube.com/watch?time_continue=3&v=feBYCeOk4As
 
-Lab . 
+Lab 8. Debugging During Testing
 ----------------------------
 
 When writing tests, use the PyCharm "visual debugger" to interactively
 poke around in the context of a problem.
 
+[![](https://img.youtube.com/vi/feBYCeOk4As/0.jpg)](https://www.youtube.com/watch?v=feBYCeOk4As)
 
 
 Primary guardian, great! But what happens if there are no guardians yet?
@@ -21,8 +23,10 @@ Guardian-less
 Let's imagine we were working on our `test_primary_guardian` test and
 did something like this:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-def test_primary_guardian(player_one):    assert player_one.primary_guardian
+```
+def test_primary_guardian(player_one):
+    assert player_one.primary_guardian
+
 ```
 
 It raises an error:
@@ -40,8 +44,10 @@ Your `print()` Will Not Help You Here
 What's the number one debugger in Python? Alas, the humble `print`
 statement. You thus reach for the "easiest" (wrong!) tool:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-def test_primary_guardian(player_one):    print(player_one.guardians)    assert player_one.primary_guardian
+```
+def test_primary_guardian(player_one):
+    print(player_one.guardians)
+    assert player_one.primary_guardian
 ```
 
 Your tests run, but...nada. `pytest` is capturing output. Besides,

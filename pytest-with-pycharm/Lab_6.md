@@ -1,11 +1,13 @@
 <img align="right" src="../logo.png">
 
 
-Lab . 
+Lab 6. Skipping Tests
 ----------------------------
 
 During refactoring, use pytest's markers to ignore certain breaking
 tests.
+
+[![](https://img.youtube.com/vi/rEYQrMY8Ux4/0.jpg)](https://www.youtube.com/watch?v=rEYQrMY8Ux4)
 
 
 Sometimes you want to overhaul a chunk of code and don't want to stare
@@ -28,8 +30,17 @@ all at once.
 Let's implement this in TDD fashion, by first writing a
 `test_add_guardians` test in `test_player.py` that fails:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-def test_add_guardians():    p = Player('Tatiana', 'Jones')    # Add one guardian    g1 = Guardian('Mary', 'Jones')    p.add_guardian(g1)    # Later, add some more    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    p.add_guardians([g2, g3])    assert [g1, g2, g3] == p.guardians
+```
+def test_add_guardians():
+    p = Player('Tatiana', 'Jones')
+    # Add one guardian
+    g1 = Guardian('Mary', 'Jones')
+    p.add_guardian(g1)
+    # Later, add some more
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    p.add_guardians([g2, g3])
+    assert [g1, g2, g3] == p.guardians
 ```
 
 We don't have a method `add_guardians` and so the test fails. Perhaps we
@@ -39,8 +50,32 @@ we don't want to comment out or (worse) delete the test.
 Instead, let's import `pytest` and put a decorator for the `skip` marker
 on that test:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-import pytestfrom laxleague.guardian import Guardianfrom laxleague.player import Playerdef test_construction():    p = Player('Tatiana', 'Jones')    assert 'Tatiana' == p.first_name    assert 'Jones' == p.last_name    assert [] == p.guardiansdef test_add_guardian():    g = Guardian('Mary', 'Jones')    p = Player('Tatiana', 'Jones')    p.add_guardian(g)    assert [g] == p.guardians@pytest.mark.skip(reason='Have not yet implemented method')def test_add_guardians():    p = Player('Tatiana', 'Jones')    # Add one guardian    g1 = Guardian('Mary', 'Jones')    p.add_guardian(g1)    # Later, add some more    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    p.add_guardians([g2, g3])    assert [g1, g2, g3] == p.guardians
+```
+import pytest
+from laxleague.guardian import Guardian
+from laxleague.player import Player
+def test_construction():
+    p = Player('Tatiana', 'Jones')
+    assert 'Tatiana' == p.first_name
+    assert 'Jones' == p.last_name
+    assert [] == p.guardians
+def test_add_guardian():
+    g = Guardian('Mary', 'Jones')
+    p = Player('Tatiana', 'Jones')
+    p.add_guardian(g)
+    assert [g] == p.guardians
+@pytest.mark.skip(reason='Have not yet implemented method')
+def test_add_guardians():
+    p = Player('Tatiana', 'Jones')
+    # Add one guardian
+    g1 = Guardian('Mary', 'Jones')
+    p.add_guardian(g1)
+    # Later, add some more
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    p.add_guardians([g2, g3])
+    assert [g1, g2, g3] == p.guardians
+
 ```
 
 Remember, we don't have to manually type the import...just start typing
@@ -56,8 +91,20 @@ With our failing test in place, let's implement the missing method. In
 `player.py`, clone the existing `add_guardian` method, then change its
 arguments and implementation:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass, fieldfrom typing import Listfrom laxleague.guardian import Guardian@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str    guardians: List[Guardian] = field(default_factory=list)    def add_guardian(self, guardian: Guardian):        self.guardians.append(guardian)    def add_guardians(self, guardians: List[Guardian]):        self.guardians.extend(guardians)
+```
+from dataclasses import dataclass, field
+from typing import List
+from laxleague.guardian import Guardian
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
+    guardians: List[Guardian] = field(default_factory=list)
+    def add_guardian(self, guardian: Guardian):
+        self.guardians.append(guardian)
+    def add_guardians(self, guardians: List[Guardian]):
+        self.guardians.extend(guardians)
 ```
 
 We can now remove the `skip` marker and the test passes. Remember to
@@ -78,8 +125,8 @@ Python "iterable".
 For example, our test passes in a *list* of guardians. It's immutable.
 Might as well change it to be a tuple:
 
-``` {.prism-code .language- .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-    p.add_guardians((g2, g3))
+```
+p.add_guardians((g2, g3))
 ```
 
 Doing so breaks Python type checking:
@@ -89,8 +136,20 @@ Checking](./images/type_checking.png "Type Checking")](https://www.jetbrains.com
 
 Let's change our `add_guardians` to accept any kind of `Iterable`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass, fieldfrom typing import List, Iterablefrom laxleague.guardian import Guardian@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str    guardians: List[Guardian] = field(default_factory=list)    def add_guardian(self, guardian: Guardian):        self.guardians.append(guardian)    def add_guardians(self, guardians: Iterable[Guardian]):        self.guardians.extend(guardians)
+```
+from dataclasses import dataclass, field
+from typing import List, Iterable
+from laxleague.guardian import Guardian
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
+    guardians: List[Guardian] = field(default_factory=list)
+    def add_guardian(self, guardian: Guardian):
+        self.guardians.append(guardian)
+    def add_guardians(self, guardians: Iterable[Guardian]):
+        self.guardians.extend(guardians)
 ```
 
 Tests still pass and type checking now passes.
@@ -106,15 +165,40 @@ Our feature will work like this: whichever guardian is added first is
 the primary guardian. In `test_player.py` we add
 `test_primary_guardian`, with the mark already in place:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-@pytest.mark.skipdef test_primary_guardian():    p = Player('Tatiana', 'Jones')    # Add one guardian    g1 = Guardian('Mary', 'Jones')    p.add_guardian(g1)    # Later, add some more    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    p.add_guardians((g2, g3))    assert g1 == p.primary_guardian
+```
+@pytest.mark.skip
+def test_primary_guardian():
+    p = Player('Tatiana', 'Jones')
+    # Add one guardian
+    g1 = Guardian('Mary', 'Jones')
+    p.add_guardian(g1)
+    # Later, add some more
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    p.add_guardians((g2, g3))
+    assert g1 == p.primary_guardian
 ```
 
 Now time for the implementation. We're doing this as a Python
 "property", so add the following in `player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass, fieldfrom typing import List, Iterablefrom laxleague.guardian import Guardian@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str    guardians: List[Guardian] = field(default_factory=list)    def add_guardian(self, guardian: Guardian):        self.guardians.append(guardian)    def add_guardians(self, guardians: Iterable[Guardian]):        self.guardians.extend(guardians)    @property    def primary_guardian(self):        return self.guardians[0]
+```
+from dataclasses import dataclass, field
+from typing import List, Iterable
+from laxleague.guardian import Guardian
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
+    guardians: List[Guardian] = field(default_factory=list)
+    def add_guardian(self, guardian: Guardian):
+        self.guardians.append(guardian)
+    def add_guardians(self, guardians: Iterable[Guardian]):
+        self.guardians.extend(guardians)
+    @property
+    def primary_guardian(self):
+        return self.guardians[0]
 ```
 
 *Tip: Use the `property` LiveTemplate in PyCharm to speed up the

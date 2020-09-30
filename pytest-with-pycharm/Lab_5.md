@@ -1,11 +1,12 @@
 <img align="right" src="../logo.png">
 
-
-Lab . 
+Lab 5. Jump to Error
 ----------------------------
 
 Writing code means writing broken code. Click a link in a traceback to
 open a file on the line of the error.
+
+[![](https://img.youtube.com/vi/U2ex-V51-PY/0.jpg)](https://www.youtube.com/watch?v=U2ex-V51-PY)
 
 
 Since we have `Guardian` now, let's hook it up to allow adding a
@@ -24,8 +25,13 @@ classes with dataclasses and showing a side benefit in test writing.
 
 First, the `Guardian` we were just working on in `guardian.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass@dataclassclass Guardian:    """ A guardian or parent in the league """    first_name: str    last_name: str
+```
+from dataclasses import dataclass
+@dataclass
+class Guardian:
+    """ A guardian or parent in the league """
+    first_name: str
+    last_name: str
 ```
 
 When writing this dataclass, note how PyCharm helps:
@@ -41,15 +47,24 @@ even have to save the file. Yummy.
 
 Now we change our `Player` class:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str
+```
+from dataclasses import dataclass
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
 ```
 
 Our `test_player` test fails. We also need to update the construction
 test in `test_player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.player import Playerdef test_construction():    p = Player('Tatiana', 'Jones')    assert 'Tatiana' == p.first_name    assert 'Jones' == p.last_name
+```
+from laxleague.player import Player
+def test_construction():
+    p = Player('Tatiana', 'Jones')
+    assert 'Tatiana' == p.first_name
+    assert 'Jones' == p.last_name
 ```
 
 Now let's get some extra benefit from dataclasses and type annotations.
@@ -74,8 +89,19 @@ of using PyCharm's visual testing.
 
 Let's start with a test in `test_player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.guardian import Guardianfrom laxleague.player import Playerdef test_construction():    p = Player('Tatiana', 'Jones')    assert 'Tatiana' == p.first_name    assert 'Jones' == p.last_name    assert [] == p.guardiansdef test_add_guardian():    g = Guardian('Mary', 'Jones')    p = Player('Tatiana', 'Jones')    p.add_guardian(g)    assert [g] == p.guardians
+```
+from laxleague.guardian import Guardian
+from laxleague.player import Player
+def test_construction():
+    p = Player('Tatiana', 'Jones')
+    assert 'Tatiana' == p.first_name
+    assert 'Jones' == p.last_name
+    assert [] == p.guardians
+def test_add_guardian():
+    g = Guardian('Mary', 'Jones')
+    p = Player('Tatiana', 'Jones')
+    p.add_guardian(g)
+    assert [g] == p.guardians
 ```
 
 We first need to ensure, in `test_construction`, that we have an empty
@@ -94,8 +120,16 @@ Failures](./images/test_failures.png "Test Failures")](https://www.jetbrains.com
 
 Let's fix this by implementing the feature in `player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass, field@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str    guardians: list = field(default_factory=list)    def add_guardian(self, guardian):        self.guardians.append(guardian)
+```
+from dataclasses import dataclass, field
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
+    guardians: list = field(default_factory=list)
+    def add_guardian(self, guardian):
+        self.guardians.append(guardian)
 ```
 
 This dataclass adds a new dataclass field named `guardians`. It is a
@@ -161,7 +195,7 @@ want to it.
 Instead, in the `Player` dataclass, let's signify that it is a list of
 `Guardian` instances:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
+```
 guardians: List[Guardian] = field(default_factory=list)
 ```
 
@@ -178,8 +212,9 @@ saves an import but doesn't allow us to say "list of Guardians".
 Next, let's indicate that `add_guardian` can only take a `Guardian`
 instance:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-def add_guardian(self, guardian: Guardian):    self.guardians.append(guardian)
+```
+def add_guardian(self, guardian: Guardian):
+    self.guardians.append(guardian)
 ```
 
 To see how this helps us "fail faster", imagine tried to add a Player as
@@ -194,6 +229,16 @@ annotations, combined with the immediate feedback in the IDE, helped us
 
 Here is our final version of `player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from dataclasses import dataclass, fieldfrom typing import Listfrom laxleague.guardian import Guardian@dataclassclass Player:    """ A lacrosse player in the league """    first_name: str    last_name: str    guardians: List[Guardian] = field(default_factory=list)    def add_guardian(self, guardian: Guardian):        self.guardians.append(guardian)
+```
+from dataclasses import dataclass, field
+from typing import List
+from laxleague.guardian import Guardian
+@dataclass
+class Player:
+    """ A lacrosse player in the league """
+    first_name: str
+    last_name: str
+    guardians: List[Guardian] = field(default_factory=list)
+    def add_guardian(self, guardian: Guardian):
+        self.guardians.append(guardian)
 ```

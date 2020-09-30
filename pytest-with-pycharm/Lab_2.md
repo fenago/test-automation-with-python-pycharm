@@ -1,11 +1,13 @@
 <img align="right" src="../logo.png">
 
-Lab . 
+
+Lab 2. Project Setup
 ----------------------------
 
 Make a PyCharm project and virtual environment with dependencies, then
 configure PyCharm to use pytest.
 
+[![](https://img.youtube.com/vi/mLYTP41H8U0/0.jpg)](https://www.youtube.com/watch?v=mLYTP41H8U0)
 
 
 Python has projects and PyCharm does as well. In this tutorial step,
@@ -48,8 +50,14 @@ in the `pytest` docs.
 We first need a `setup.py` file at the top of our new project. Add the
 following:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from setuptools import find_packages, setupsetup(    name='laxleague',    extras_require=dict(tests=['pytest']),    packages=find_packages(where="src"),    package_dir={"": "src"},)
+```
+from setuptools import find_packages, setup
+setup(
+    name='laxleague',
+    extras_require=dict(tests=['pytest']),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+)
 ```
 
 Our source will now go in a `src/laxleague` directory so make sure to
@@ -63,7 +71,7 @@ of putting our code under `src`.
 
 Now go to PyCharm's Terminal tool and type in the following:
 
-``` {.prism-code .language-shell .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
+```
 $ pip install -e .[tests]
 ```
 
@@ -83,8 +91,9 @@ Give Me Some Source
 But we don't have any source code yet. Let's put a file at
 `src/laxleague/player.py` containing an empty `Player` class:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-class Player:    pass
+```
+class Player:
+    pass
 ```
 
 Configure Testing

@@ -1,12 +1,13 @@
 <img align="right" src="../logo.png">
 
 
-Lab . 
-----------------------------
+Lab 4. Getting Into the TDD Flow
+---------------------------------
 
 Setup your PyCharm project to help get into the flow of Test-Driven
 Development (TDD).
 
+[![](https://img.youtube.com/vi/kwj6Hk1kJYU/0.jpg)](https://www.youtube.com/watch?v=kwj6Hk1kJYU)
 
 
 Players have parents, also known as guardians. Let's make a module for a
@@ -19,8 +20,10 @@ Starter Tests
 
 First, create `src/laxleague/guardian.py` with an empty class:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-class Guardian:    """ A guardian or parent in the league """    pass
+```
+class Guardian:
+    """ A guardian or parent in the league """
+    pass
 ```
 
 Why do we make an empty placeholder class? To let PyCharm generate the
@@ -31,8 +34,11 @@ test for us. Use `Navigate | Go To Test` (`Ctrl-Shift-T` Win/Linux,
 In that file, change the first test to `test_construction` to "get me
 into the flow", letting PyCharm generate the import:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.guardian import Guardiandef test_construction():    assert Guardian()
+```
+from laxleague.guardian import Guardian
+def test_construction():
+    assert Guardian()
+
 ```
 
 Run the test by right-clicking in the editor *outside any block* and
@@ -101,8 +107,11 @@ The Guardian
 Our `Guardian` needs a constructor that takes and stores `first_name`
 and a `last_name`. Change the first test in `tests/test_guardian.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.guardian import Guardiandef test_construction():    g = Guardian('Mary', 'Jones')
+```
+from laxleague.guardian import Guardian
+def test_construction():
+    g = Guardian('Mary', 'Jones')
+
 ```
 
 Notice that PyCharm warns you (on hovering) with 'Unexpected argument'
@@ -121,8 +130,12 @@ it is the *code* we are writing tests for, the mistake is conveniently
 right there in our left tab. No need to think. Change
 `laxleague/guardian.py` to implement storing names on instances:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-class Guardian:    """ A guardian or parent in the league """    def __init__(self, first_name, last_name):        self.first_name = first_name        self.last_name = last_name
+```
+class Guardian:
+    """ A guardian or parent in the league """
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
 ```
 
 As you are writing this, let PyCharm help you:
@@ -144,7 +157,7 @@ more productive and accurate.
 First, hold down `Ctrl` and hover on the `g`. PyCharm tells you that `g`
 is of inferred type `Guardian.` Next, add an assertion:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
+```
 assert g.first_name == 'Mary'
 ```
 
@@ -175,15 +188,20 @@ In fact, PyCharm will [obey a
 style](https://youtrack.jetbrains.com/issue/PY-27267) set by a project.
 Create a `pytest.ini` file at the root:
 
-``` {.prism-code .language-ini .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-[pytest]swapdiff=1
+```
+[pytest]
+swapdiff=1
 ```
 
 Let's write a test for last name, causing `test_guardian.py` to finish
 like the following -- including the expected/actual ordering:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.guardian import Guardiandef test_construction():    g = Guardian('Mary', 'Jones')    assert 'Mary' == g.first_name    assert 'Jones' == g.last_name
+```
+from laxleague.guardian import Guardian
+def test_construction():
+    g = Guardian('Mary', 'Jones')
+    assert 'Mary' == g.first_name
+    assert 'Jones' == g.last_name
 ```
 
 One last point: PyCharm's tool window for testing shows passing tests by

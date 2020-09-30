@@ -1,11 +1,12 @@
 
 <img align="right" src="../logo.png">
 
-
-Lab . 
+Lab 3. Hello Test
 ----------------------------
 
 Write a simple test and run it in PyCharm's visual test runner.
+
+[![](https://img.youtube.com/vi/I1ssiDEa2S4/0.jpg)](https://www.youtube.com/watch?v=I1ssiDEa2S4)
 
 
 Getting started with pytest is quite easy. Let's write a test with a
@@ -33,8 +34,9 @@ PyCharm will add two files to `tests`: an empty `tests/__init__.py`
 (which can be helpful to `pytest` later) and `tests/test_player.py`.
 PyCharm then opens the new test file at `tests/test_player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-def test_player():    assert False
+```
+def test_player():
+    assert False
 ```
 
 As mentioned in the previous step, `pytest` recommends placing your
@@ -82,8 +84,9 @@ tests.)
 
 Let's change the assertion to make the test pass:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-def test_player():    assert True
+```
+def test_player():
+    assert True
 ```
 
 In the tool window, click the green arrow to re-run your tests. The
@@ -129,8 +132,10 @@ as "test-driven development" (TDD).
 We previously made a placeholder file at `src/laxleague/player.py`. Open
 that file and change the class to have a docstring:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-class Player:    """ A lacrosse player in the league """    pass
+```
+class Player:
+    """ A lacrosse player in the league """
+    pass
 ```
 
 These tutorials are all about getting into the "flow". Lots of times I
@@ -142,8 +147,11 @@ thing can be constructed. It is of modest value: it can later help show
 if a refactoring changed things. Let's change our first test to see if
 we can construct an instance:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from laxleague.players import Playerdef test_construction():    assert Player()
+```
+from laxleague.players import Player
+def test_construction():
+    assert Player()
+
 ```
 
 We aren't asserting anything about the instance. Simply: the import

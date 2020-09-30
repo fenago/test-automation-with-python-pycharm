@@ -1,10 +1,12 @@
 <img align="right" src="../logo.png">
 
-
-Lab . 
+Lab 1. Background on Testing
 ----------------------------
 
 Introduce testing, pytest, and how it all fits into PyCharm, along with a scenario to work on.
+
+[![](https://img.youtube.com/vi/dAbpPklX7wo/0.jpg)](https://www.youtube.com/watch?v=dAbpPklX7wo)
+
 
 "Visual Testing with `pytest`" means three things: the field of testing
 and test-driven development (TDD), `pytest` as a testing tool, and

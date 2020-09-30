@@ -1,10 +1,13 @@
 <img align="right" src="../logo.png">
 
 
-Lab . 
+Lab 7. Test Fixtures
 ----------------------------
 
 Make your tests more focused by moving sample data to pytest fixtures.
+
+[![](https://img.youtube.com/vi/lidTnXTFssM/0.jpg)](https://www.youtube.com/watch?v=lidTnXTFssM)
+
 
 Each test recreates `Player` and `Guardian` instances, which is
 repetitive and distracts from the test's purpose. [pytest
@@ -25,16 +28,26 @@ instead of setting up a baseline of test data.
 Let's make a `pytest` fixture named `player_one` which constructs and
 returns a `Player`:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-import pytestfrom laxleague.guardian import Guardianfrom laxleague.player import Player@pytest.fixturedef player_one() -> Player:    return Player('Tatiana', 'Jones')
+```
+import pytest
+from laxleague.guardian import Guardian
+from laxleague.player import Player
+
+@pytest.fixture
+def player_one() -> Player:
+    return Player('Tatiana', 'Jones')
+
 ```
 
 This fixture can now be used as an argument to your tests. `pytest` will
 find the "appropriate" (more on this later) fixture with that name,
 invoke it, and pass in the result:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-def test_construction(player_one):    assert 'Tatiana' == player_one.first_name    assert 'Jones' == player_one.last_name    assert [] == player_one.guardians
+```
+def test_construction(player_one):
+    assert 'Tatiana' == player_one.first_name
+    assert 'Jones' == player_one.last_name
+    assert [] == player_one.guardians
 ```
 
 Our tests still pass. We then make the same change in the other tests,
@@ -43,15 +56,55 @@ taking the `player_one` fixture as an argument instead of constructing a
 
 Let's next make a fixture to hold the `Guardian` list:
 
-``` {.prism-code .language-python .content style="color:#9CDCFE;background-color:#1E1E1E;font-size:large"}
-from typing import Tupleimport pytestfrom laxleague.guardian import Guardianfrom laxleague.player import Player@pytest.fixturedef player_one() -> Player:    return Player('Tatiana', 'Jones')@pytest.fixturedef guardians() -> Tuple[Guardian, ...]:    g1 = Guardian('Mary', 'Jones')    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    return g1, g2, g3
+```
+from typing import Tuple
+
+import pytest
+from laxleague.guardian import Guardian
+from laxleague.player import Player
+
+@pytest.fixture
+def player_one() -> Player:
+    return Player('Tatiana', 'Jones')
+
+@pytest.fixture
+def guardians() -> Tuple[Guardian, ...]:
+    g1 = Guardian('Mary', 'Jones')
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    return g1, g2, g3
 ```
 
 After converting all the tests to use these fixtures, our
 `test_player.py` looks like the following:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-import pytestdef test_construction(player_one):    assert 'Tatiana' == player_one.first_name    assert 'Jones' == player_one.last_name    assert [] == player_one.guardiansdef test_add_guardian(player_one, guardians):    player_one.add_guardian(guardians[0])    assert [guardians[0]] == player_one.guardiansdef test_add_guardians(player_one, guardians):    player_one.add_guardian(guardians[0])    player_one.add_guardians((guardians[1], guardians[2]))    assert list(guardians) == player_one.guardiansdef test_primary_guardian(player_one, guardians):    player_one.add_guardian(guardians[0])    player_one.add_guardians((guardians[1], guardians[2]))    assert guardians[0] == player_one.primary_guardiandef test_no_primary_guardian(player_one):    with pytest.raises(IndexError) as exc:        player_one.primary_guardian    assert 'list index out of range' == str(exc.value)
+```
+import pytest
+
+def test_construction(player_one):
+    assert 'Tatiana' == player_one.first_name
+    assert 'Jones' == player_one.last_name
+    assert [] == player_one.guardians
+
+def test_add_guardian(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    assert [guardians[0]] == player_one.guardians
+
+def test_add_guardians(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    player_one.add_guardians((guardians[1], guardians[2]))
+    assert list(guardians) == player_one.guardians
+
+def test_primary_guardian(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    player_one.add_guardians((guardians[1], guardians[2]))
+    assert guardians[0] == player_one.primary_guardian
+
+def test_no_primary_guardian(player_one):
+    with pytest.raises(IndexError) as exc:
+        player_one.primary_guardian
+    assert 'list index out of range' == str(exc.value)
+
 ```
 
 Our tests are now easier to reason about.
@@ -61,8 +114,20 @@ Sharing Fixtures with `conftest.py`
 
 Next we give `test_guardian.py` the same treatment:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from typing import Tupleimport pytestfrom laxleague.guardian import Guardian@pytest.fixturedef guardians() -> Tuple[Guardian, ...]:    g1 = Guardian('Mary', 'Jones')    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    return g1, g2, g3def test_construction(guardians):    assert 'Mary' == guardians[0].first_name    assert 'Jones' == guardians[0].last_name
+```
+from typing import Tuple
+import pytest
+from laxleague.guardian import Guardian
+@pytest.fixture
+def guardians() -> Tuple[Guardian, ...]:
+    g1 = Guardian('Mary', 'Jones')
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    return g1, g2, g3
+def test_construction(guardians):
+    assert 'Mary' == guardians[0].first_name
+    assert 'Jones' == guardians[0].last_name
+
 ```
 
 Hmm, something looks wrong. We said fixtures helped *avoid* repetition,
@@ -78,20 +143,59 @@ available as an argument to a test.
 Here's our `tests/conftest.py` file with the fixtures we just added in
 `test_player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-from typing import Tupleimport pytestfrom laxleague.guardian import Guardianfrom laxleague.player import Player@pytest.fixturedef player_one() -> Player:    return Player('Tatiana', 'Jones')@pytest.fixturedef guardians() -> Tuple[Guardian, ...]:    g1 = Guardian('Mary', 'Jones')    g2 = Guardian('Joanie', 'Johnson')    g3 = Guardian('Jerry', 'Johnson')    return g1, g2, g3
+```
+from typing import Tuple
+import pytest
+from laxleague.guardian import Guardian
+from laxleague.player import Player
+@pytest.fixture
+def player_one() -> Player:
+    return Player('Tatiana', 'Jones')
+@pytest.fixture
+def guardians() -> Tuple[Guardian, ...]:
+    g1 = Guardian('Mary', 'Jones')
+    g2 = Guardian('Joanie', 'Johnson')
+    g3 = Guardian('Jerry', 'Johnson')
+    return g1, g2, g3
 ```
 
 Now our `test_guardian.py` is short and focused:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-def test_construction(guardians):    assert 'Mary' == guardians[0].first_name    assert 'Jones' == guardians[0].last_name
+```
+def test_construction(guardians):
+    assert 'Mary' == guardians[0].first_name
+    assert 'Jones' == guardians[0].last_name
 ```
 
 Same for `test_player.py`:
 
-``` {.prism-code .language-python .content style="color: rgb(156, 220, 254); background-color: rgb(30, 30, 30); font-size: large;"}
-import pytestdef test_construction(player_one):    assert 'Tatiana' == player_one.first_name    assert 'Jones' == player_one.last_name    assert [] == player_one.guardiansdef test_add_guardian(player_one, guardians):    player_one.add_guardian(guardians[0])    assert [guardians[0]] == player_one.guardiansdef test_add_guardians(player_one, guardians):    player_one.add_guardian(guardians[0])    player_one.add_guardians((guardians[1], guardians[2]))    assert list(guardians) == player_one.guardiansdef test_primary_guardian(player_one, guardians):    player_one.add_guardian(guardians[0])    player_one.add_guardians((guardians[1], guardians[2]))    assert guardians[0] == player_one.primary_guardiandef test_no_primary_guardian(player_one):    with pytest.raises(IndexError) as exc:        player_one.primary_guardian    assert 'list index out of range' == str(exc.value)
+```
+import pytest
+
+def test_construction(player_one):
+    assert 'Tatiana' == player_one.first_name
+    assert 'Jones' == player_one.last_name
+    assert [] == player_one.guardians
+
+def test_add_guardian(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    assert [guardians[0]] == player_one.guardians
+
+def test_add_guardians(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    player_one.add_guardians((guardians[1], guardians[2]))
+    assert list(guardians) == player_one.guardians
+
+def test_primary_guardian(player_one, guardians):
+    player_one.add_guardian(guardians[0])
+    player_one.add_guardians((guardians[1], guardians[2]))
+    assert guardians[0] == player_one.primary_guardian
+
+def test_no_primary_guardian(player_one):
+    with pytest.raises(IndexError) as exc:
+        player_one.primary_guardian
+    assert 'list index out of range' == str(exc.value)
+
 ```
 
 Life With Fixtures
